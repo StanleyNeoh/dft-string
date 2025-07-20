@@ -9,11 +9,19 @@ import { DFTTransform, PatternTransform, TextTransform } from "../_components/Te
 export function DFTDemo() {
   const [text, setText] = useState("");
   const [pattern, setPattern] = useState("");
-  const [result, setResult] = useState<DftStringSearchResult | null>(null);
+  const [result, setResult] = useState<{
+    text: string;
+    pattern: string;
+    result: DftStringSearchResult
+  } | null>(null);
 
   const onSearch = () => {
     if (text && pattern) {
-      setResult(dft_string_search(text, pattern))
+      setResult({
+        text: text,
+        pattern: pattern,
+        result: dft_string_search(text, pattern)
+      });
     }
   }
 
@@ -60,9 +68,7 @@ If you want to search for '?' in the text, you can escape it with a backslash '/
         </div>
       </div>
       <SearchResultDisplay 
-        result={result} 
-        text={text} 
-        pattern={pattern} 
+        {...result || {}}
       />
     </div>
   );
@@ -73,11 +79,11 @@ function SearchResultDisplay({
   pattern, 
   result
 }: {
-  text: string, 
-  pattern: string,
-  result: DftStringSearchResult | null,
+  text?: string, 
+  pattern?: string,
+  result?: DftStringSearchResult,
 }) {
-  if (!result) {
+  if (!result || !text || !pattern) {
     return <div className="text-gray-500">Enter text and pattern to see results</div>;
   }
   const {
