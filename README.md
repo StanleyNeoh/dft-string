@@ -1,3 +1,9 @@
+# DFT String
+
+This project is a short write up referencing [cp-algorithms](https://cp-algorithms.com/). Specifically, I explain how [Discrete Fourier Transform (DFT)](https://cp-algorithms.com/algebra/fft.html) can be used to solve string matching problems efficiently.
+
+It includes a custom implementation of the DFT algorithm, which is used to find occurrences of a pattern in a text string. The implementation is designed to handle large inputs efficiently by leveraging the properties of the DFT and breaks down the calculation of how the discrete Fourier transform can be used to find the number of occurrences of a pattern in a text string.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
