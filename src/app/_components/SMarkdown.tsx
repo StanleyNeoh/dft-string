@@ -30,6 +30,29 @@ export function SMarkdown({
         ),
         strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
         em: ({ children }) => <em className="italic text-gray-600">{children}</em>,
+        // Custom wrapper for math elements to make them scrollable
+        div: ({ children, className, ...props }) => {
+          if (className?.includes('katex-display')) {
+            return (
+              <div className="overflow-x-auto max-w-full text-center" {...props}>
+                <div className={`min-w-fit ${className}`}>
+                  {children}
+                </div>
+              </div>
+            );
+          }
+          return <div className={className} {...props}>{children}</div>;
+        },
+        span: ({ children, className, ...props }) => {
+          if (className?.includes('katex')) {
+            return (
+              <span className={`inline max-w-full overflow-x-auto ${className || ''}`} style={{ verticalAlign: 'baseline' }} {...props}>
+                {children}
+              </span>
+            );
+          }
+          return <span className={className} {...props}>{children}</span>;
+        }
       }}
       remarkPlugins={[remarkMath]}
       rehypePlugins={[rehypeKatex]}
