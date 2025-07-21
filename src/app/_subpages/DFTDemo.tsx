@@ -36,7 +36,6 @@ This is an interactive example of the single character wildcard search algorithm
 You can enter a pattern and a text to search in, and the algorithm will find all occurrences of the pattern in the text, including wildcards.
 
 Use '?' to represent a single character wildcard in the pattern.
-If you want to search for '?' in the text, you can escape it with a backslash '/?'.
           `}
         </SMarkdown>
       </div>
