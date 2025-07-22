@@ -1,4 +1,4 @@
-# DFT String
+# [DFT String](https://stanleyneoh.github.io/dft-string/)
 
 This project is a short write up referencing [cp-algorithms](https://cp-algorithms.com/). Specifically, I explain how [Discrete Fourier Transform (DFT)](https://cp-algorithms.com/algebra/fft.html) can be used to solve string matching problems efficiently.
 
